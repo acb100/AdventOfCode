@@ -4,11 +4,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class FindMostCalories {
     Scanner fileReader = new Scanner(new File("src/DayOne/input.txt"));
     ArrayList<Integer> calories = new ArrayList<>();
+
 
     public FindMostCalories() throws FileNotFoundException {
     }
@@ -17,7 +19,7 @@ public class FindMostCalories {
         int sumOfAlf = 0;
         do {
             String in = fileReader.nextLine();
-            if (in.equals("")){
+            if (in.equals("")) {
                 calories.add(sumOfAlf);
                 sumOfAlf = 0;
             } else {
@@ -39,10 +41,21 @@ public class FindMostCalories {
         return compare;
     }
 
+    public int sumOfTopThree() {
+        int sum = 0;
+        Collections.sort(calories);
+        List<Integer> top3 = new ArrayList<>(calories.subList(calories.size() - 3, calories.size()));
+        for (int i = 0; i < top3.size(); i++)
+            sum += top3.get(i);
+        System.out.println(sum);
+        return sum;
+    }
+
     private void run() {
         readFile();
         findMostCalories();
-        System.out.println(Collections.max(calories));
+        sumOfTopThree();
+
     }
 
     public static void main(String[] args) throws FileNotFoundException {
