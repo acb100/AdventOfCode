@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class FindMostCalories {
-    Scanner fileReader = new Scanner(new File("C:\\Users\\Anders\\OneDrive - Københavns Erhvervsakademi\\Semester 1\\Programmering\\AdventOfCode\\src\\DayOne\\input.txt"));
+    Scanner fileReader = new Scanner(new File("src/DayOne/input.txt"));
     ArrayList<Integer> calories = new ArrayList<>();
 
     public FindMostCalories() throws FileNotFoundException {
